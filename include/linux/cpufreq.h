@@ -224,6 +224,8 @@ struct cpufreq_driver {
 	unsigned int	(*get)	(unsigned int cpu);
 
 	/* optional */
+	unsigned int (*getavg)	(struct cpufreq_policy *policy,
+                            unsigned int cpu);
 	int	(*bios_limit)	(int cpu, unsigned int *limit);
 
 	int	(*exit)		(struct cpufreq_policy *policy);
@@ -397,6 +399,8 @@ int cpufreq_driver_target(struct cpufreq_policy *policy,
 int __cpufreq_driver_target(struct cpufreq_policy *policy,
 				   unsigned int target_freq,
 				   unsigned int relation);
+extern int __cpufreq_driver_getavg(struct cpufreq_policy *policy,
+                                   unsigned int cpu);
 int cpufreq_register_governor(struct cpufreq_governor *governor);
 void cpufreq_unregister_governor(struct cpufreq_governor *governor);
 
@@ -431,6 +435,15 @@ extern struct cpufreq_governor cpufreq_gov_elementalx;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_LIONHEART)
 extern struct cpufreq_governor cpufreq_gov_lionheart;
 #define CPUFREQ_DEFAULT_GOVERNOR (&cpufreq_gov_lionheart)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_NIGHTMARE)
+extern struct cpufreq_governor cpufreq_gov_nightmare;
+#define CPUFREQ_DEFAULT_GOVERNOR 	(&cpufreq_gov_NIGHTMARE)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_SMARTMAX)
+extern struct cpufreq_governor cpufreq_gov_smartmax;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_smartmax)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_PMC)
+extern struct cpufreq_governor cpufreq_gov_pmc;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_pmc)
 #endif
 
 /*********************************************************************

@@ -13,6 +13,13 @@ obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVE)	+= cpufreq_interactive.o
 obj-$(CONFIG_CPU_FREQ_GOV_ELEMENTALX)	+= cpufreq_elementalx.o
 obj-$(CONFIG_CPU_FREQ_GOV_COMMON)		+= cpufreq_governor.o
 obj-$(CONFIG_CPU_FREQ_GOV_LIONHEART)	+= cpufreq_lionheart.o
+<<<<<<< HEAD
+=======
+obj-$(CONFIG_CPU_FREQ_GOV_COMMON)	+= cpufreq_governor.o
+obj-$(CONFIG_CPU_FREQ_GOV_NIGHTMARE)	+= cpufreq_nightmare.o
+obj-$(CONFIG_CPU_FREQ_GOV_SMARTMAX)	+= cpufreq_smartmax_gov.o
+obj-$(CONFIG_CPU_FREQ_GOV_PMC)		+= cpufreq_pmc.o
+>>>>>>> 86ef021... cpufreq: initial commit for smartmax from maxwen
 obj-$(CONFIG_CPU_BOOST)			+= cpu-boost.o
 
 obj-$(CONFIG_GENERIC_CPUFREQ_CPU0)	+= cpufreq-cpu0.o
